@@ -1,0 +1,45 @@
+{
+    "name": "__MSG_appName__",
+    "version": "0.1.0",
+    "manifest_version": 2,
+    "description": "__MSG_appDescription__",
+    "icons": {
+    },
+    "default_locale": "en",
+    "background": {
+        "scripts": [
+            "components/underscore/underscore.js",
+            "scripts/storage.js",
+            "scripts/libs/extract-content-all.js",
+            "scripts/candidate_selectors.js",
+            "scripts/background.js"
+        ],
+        "persistent": true
+    },
+    "options_page": "options.html",
+    "content_scripts": [
+       {
+         "matches": [
+             "http://reader.aol.com/*",
+             "https://reader.aol.com/*"
+         ],
+         "css": [
+             "styles/content.css"
+         ],
+         "js": [
+             "components/jquery/jquery.js",
+             "components/underscore/underscore.js",
+             "scripts/libs/hapt.js",
+             "scripts/content.js"
+         ],
+         "run_at": "document_end",
+         "all_frames": false
+       }
+    ],
+    "permissions": [
+        "storage",
+        "webRequest",
+        "<all_urls>"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
