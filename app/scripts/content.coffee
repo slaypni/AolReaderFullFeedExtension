@@ -23,7 +23,7 @@ chrome.runtime.sendMessage {type: 'getSettings'}, (settings) ->
     hapt_listener = haptListen (_keys) ->
         keys = _keys.join(' ')
         if keys in (binding.join(' ') for binding in _settings.bindings.load_full_feed)
-            ActiveArticle.get().loadFullFeed()
+            ActiveArticle.get()?.loadFullFeed()
 
 $ ->
     $('body').on 'DOMNodeInserted', (e) ->
