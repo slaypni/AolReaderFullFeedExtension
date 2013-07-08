@@ -30,12 +30,14 @@ chrome.runtime.onMessage.addListener (request, sender, sendResponse) ->
                         url = header.value  # affect to retrieve xpath data from database
                         break
                     chrome.webRequest.onHeadersReceived.removeListener(arguments.callee)
+                    return {}
                 , {
                     urls: [url]
                     types: ['xmlhttprequest']
                 }
                 , [
                     'responseHeaders'
+                    'blocking'
                 ]
             )
             
