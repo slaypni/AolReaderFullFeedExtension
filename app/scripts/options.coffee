@@ -1,5 +1,7 @@
 CONFIG_DESCRIPTIONS = [
     {name: 'load_automatically', description: 'load automatically'},
+    {name: 'do_show_twitter_button', description: 'show Twitter button'},
+    {name: 'do_show_facebook_button', description: 'show Facebook button'},
 ]
 
 BINDING_DESCRIPTIONS = [

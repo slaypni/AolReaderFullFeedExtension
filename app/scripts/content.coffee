@@ -51,6 +51,15 @@ class ActiveArticle
                 if @article_content_element?.length > 0
                     @url = @article_content_element.find('a').first().prop('href') if not @url?
                     @article_body_element = @article_content_element.find('.article-body').first() if not (@article_body_element?.length > 0)
+                    if not @article_title_element?.length > 0
+                        @article_title_element = @article_content_element.find('.article-title').first()
+                        if @article_title_element?.length > 0
+                            if _settings? and (_settings.do_show_twitter_button or _settings.do_show_facebook_button)
+                                p = $('<p></p>').insertAfter(@article_title_element)
+                                if _settings.do_show_twitter_button
+                                    p.append("<iframe allowtransparency=\"true\" frameborder=\"0\" scrolling=\"no\" src=\"https://platform.twitter.com/widgets/tweet_button.html?url=#{encodeURI(@url)}\" style=\"width:104px; height:20px;\"></iframe>")
+                                if _settings.do_show_facebook_button
+                                    p.append("<iframe src=\"//www.facebook.com/plugins/like.php?href=#{encodeURI(@url)}&amp;send=false&amp;layout=button_count&amp;width=104&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=102633999921691\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:104px; height:21px;\" allowTransparency=\"true\"></iframe>")
 
                 @article_header_element = @article_element.find('.article-header.clearfix').first() if not (@article_header_element?.length > 0)
                 if @article_header_element?.length > 0

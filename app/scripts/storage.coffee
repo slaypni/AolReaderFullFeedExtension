@@ -2,6 +2,8 @@
 
 INITIAL_SETTINGS =
     load_automatically: false
+    do_show_twitter_button: true
+    do_show_facebook_button: true
     bindings:
         load_full_feed: [['F']]
 
