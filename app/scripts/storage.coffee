@@ -5,7 +5,7 @@ INITIAL_SETTINGS =
     do_show_twitter_button: true
     do_show_facebook_button: true
     bindings:
-        load_full_feed: [['F']]
+        load_full_feed: [['W']]
 
 EMPTY_SETTINGS =
     ( (items) ->
