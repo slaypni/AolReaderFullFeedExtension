@@ -34,7 +34,7 @@ class ActiveArticle
     _dom_element = null
     
     @get: ->
-        element = $('.article-item-active, .dialog.article-item').has('.article-header.clearfix').first()
+        element = $('.article-item, .dialog.article-item').has('.article-header.clearfix').first()
         if element.length == 0
             _instance = _dom_element = null
         else 
@@ -63,10 +63,10 @@ class ActiveArticle
 
                 @article_header_element = @article_element.find('.article-header.clearfix').first() if not (@article_header_element?.length > 0)
                 if @article_header_element?.length > 0
-                    @btn_group_wrap_element = @article_header_element.find('.btn-group-wrap').first() if not (@btn_group_wrap_element?.length > 0)
+                    @btn_group_wrap_element = @article_header_element.find('ul.btn-list').first() if not (@btn_group_wrap_element?.length > 0)
                     if @btn_group_wrap_element?.length > 0
                         addButton = =>
-                            @button = $('<div class="btn-group"><span class="btn-icon with-tip" title data-original-title="View Article"><i class="icon-view-article"></i></span></div>')
+                            @button = $('<li><span class="btn-list-item button with-tip" title data-original-title="View Article"><i class="aoli-view-article"></i></span></li>')
                             @btn_group_wrap_element.prepend(@button)
                             @button.click =>
                                 @loadFullFeed()
